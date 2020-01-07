@@ -21,10 +21,6 @@
           <form method = "POST" action = "{{route('admin.reservations.store')}}">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
             <div class="form-group">
-              <label for ="title"> Name </label>
-              <input type ="text" class="form-control" id="name" name="name" value="{{old('name')}}"/>
-            </div>
-            <div class="form-group">
               <label for ="title"> Date </label>
               <input type ="date" class="form-control" id="date" name="date" value="{{old('date')}}"/>
             </div>
@@ -38,14 +34,20 @@
             </div>
             <div class="form-group">
               <label for ="title"> Restaurant </label>
-              <input type ="select" class="form-control" id="restaurant_id" name="restaurant_id" value="{{old('restaurant_id')}}"/>
+              <select name="restaurant_id">
+
+                @foreach ($restaurants as $restaurant)
+                <option value="{{ $restaurant->id }}" {{old("$restaurant->id")}}>
+                  {{$restaurant->name}}
+                </option>
+                @endforeach
+
+              </select>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for ="title"> Table </label>
               <input type ="select" class="form-control" id="table_id" name="table_id" value="{{old('table_id')}}"/>
-            </div>
-
-
+            </div> -->
             <a href="{{route('admin.reservations.index')}}" class="btn btn-link"> Cancel </a>
             <button type="submit" class="btn btn-primary float-right"> Submit </button>
           </form>

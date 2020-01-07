@@ -19,7 +19,6 @@
               <th>Date</th>
               <th>Time</th>
               <th>Restaurant</th>
-              <th>Table</th>
               <th>Party Size</th>
               <th></th>
             </thead>
@@ -29,8 +28,7 @@
                 <td>{{ $reservation->user->name }}</td>
                 <td>{{ $reservation->date }}</td>
                 <td>{{ $reservation->time }}</td>
-                <td>{{ $reservation->restaurant_id }}</td>
-                <td>{{ $reservation->table_id}}</td>
+                <td>{{ $reservation->restaurant->name }}</td>
                 <td>{{ $reservation->party_size }}</td>
 
                 <td>

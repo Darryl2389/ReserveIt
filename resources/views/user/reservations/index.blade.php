@@ -11,7 +11,6 @@
       <div class="card">
         <div class="card-header">
           Your Reservations
-          <!-- <a href="{{route('admin.reservations.create')}}" class="btn btn-primary float-right">Add</a> -->
         </div>
         <div class="card-body">
           @if (count($reservations) === 0 )
@@ -36,7 +35,7 @@
                 <td>
                   <a href="{{ route('user.reservations.show',$reservation->id) }}" class="btn btn-default">View</a>
                   <a href="{{ route('user.reservations.edit',$reservation->id) }}" class="btn btn-warning">Edit</a>
-                  <form style="display:inline-block" method="POST" action="{{route('admin.reservations.destroy', $reservation->id) }}">
+                  <form style="display:inline-block" method="POST" action="{{route('user.reservations.destroy', $reservation->id) }}">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button type="submit" class="form-control btn btn-danger">Cancel</a>

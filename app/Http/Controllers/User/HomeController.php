@@ -1,13 +1,10 @@
 <?php
 
-
-
-
-
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Reservation;
 use App\User;
 use Auth;
 
@@ -24,6 +21,9 @@ public function __construct()
 
   {
     $user = Auth::user();
-    return view('user.home');
+      $reservations = Reservation::where('user_id',$user->id)->get();
+      return view('user.home')->with([
+      'reservations' => $reservations
+    ]);
     }
   }

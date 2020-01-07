@@ -5,9 +5,9 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Reservation;
 use App\Restaurant;
-use App\Auth;
 use App\User;
 use App\Role;
 
@@ -26,7 +26,8 @@ $this->middleware('role:user');
  */
 public function index()
 {
-  $reservations = Reservation::all();
+  $user = Auth::user();
+  $reservations = Reservation::where('user_id',$user->id)->get();
 
   return view('user.reservations.index')->with([
     'reservations' => $reservations
@@ -44,6 +45,7 @@ public function create()
 
     return view('user.reservations.create')->with([
       'restaurants' => $restaurants
+
     ]);
 }
 
@@ -84,9 +86,9 @@ public function store(Request $request)
 public function show($id)
 {
   $reservation = Reservation::findOrFail($id);
-
   return view('user.reservations.show')->with([
     'reservation' => $reservation
+
 ]);
 }
 
@@ -107,6 +109,22 @@ public function edit($id)
 }
   public function update(Request $request, $id)
 {
+  $reservations = Reservation::findOrFail($id);
+  $user = User::findOrFail(Auth::user()->reservation->id);
+
+  $request->validate([
+  'date' => 'required|max:191',
+  'time' => 'required',
+  'party_size' => 'required|2',
+  'restaurant_id' => 'required',
+
+]);
+
+  $reservation->date = $request->input('date');
+  $reservation->time = $request->input('time');
+  $reservation->user_id = $user->id;
+  $reservation->price = $request->input('price');
+  $reservation->save();
 
   return redirect()->route('user.reservations.index');
 }

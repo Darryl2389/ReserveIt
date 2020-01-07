@@ -21,7 +21,7 @@ $this->middleware('role:user');
  */
 public function index()
 {
-  $restaurant = Restaurant::all();
+  $restaurants = Restaurant::all();
 
   return view('user.restaurants.index')->with([
     'restaurants' => $restaurants

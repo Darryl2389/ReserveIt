@@ -25,7 +25,7 @@
                 <td>{{ $restaurant->location }}</td>
                 <td>{{ $restaurant->type }}</td>
                 <td>
-                  <a href="{{ route('admin.restaurants.show',$restaurant->id) }}" class="btn btn-default">View</a>
+                  <a href="{{ route('user.restaurants.show',$restaurant->id) }}" class="btn btn-default">View</a>
                   </form>
                 </td>
               </tr>

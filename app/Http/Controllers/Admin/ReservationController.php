@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reservation;
+use App\Restaurant;
+use Illuminate\Support\Facades\Auth;
 use App\Role;
 use App\User;
 class ReservationController extends Controller
@@ -36,7 +38,15 @@ public function index()
  */
 public function create()
 {
-    return view('admin.reservations.create');
+  $restaurants = Restaurant::all();
+  $users = User::all();
+
+    return view('admin.reservations.create')->with([
+      'restaurants' => $restaurants,
+      'users' => $users
+
+    ]);
+
 }
 
 /**
@@ -52,17 +62,16 @@ public function store(Request $request)
   'date' => 'required|max:191',
   'time' => 'required|max:191',
   'restaurant_id' => 'required|max:191',
-  'table_id' => 'required|max:191',
-  'user_id' => 'required|max:10',
   'party_size' => 'required|max:191'
 ]);
+
+  $user = Auth::user();
 
   $reservation = new Reservation();
   $reservation->date = $request->input('date');
   $reservation->time = $request->input('time');
   $reservation->restaurant_id = $request->input('restaurant_id');
-  $reservation->user_id = $request->input('user_id');
-  $reservation->table_id = $request->input('table_id');
+  $reservation->user_id = $user->id;
   $reservation->party_size = $request->input('party_size');
   $reservation->save();
 

@@ -20,7 +20,7 @@
           @endif
           <form method = "POST" action = "{{route('user.reservations.store')}}">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
-            <div class="form-group">
+            <div class="form-control">
               <label for ="title"> Restaurant </label>
               <select name="restaurant_id">
 
