@@ -37,7 +37,7 @@ class RestaurantsTableSeeder extends Seeder
       $restaurant->name = 'Alfies';
       $restaurant->location = 'South William Street, Dublin';
       $restaurant->type = 'International';
-      $restaurant->image= 'https://resizer.otstatic.com/v2/photos/legacy/2/26481589.jpg';
+      $restaurant->image= 'https://resizer.otstatic.com/v2/photos/legacy/2/26481580.jpg';
       $restaurant->save();
 
 
