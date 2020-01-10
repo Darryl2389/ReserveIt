@@ -38,8 +38,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
     <style>
       .map {
-        height: 400px;
-        width: 100%;
+        height: 200px;
+        width: 25%;
       }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>

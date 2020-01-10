@@ -92,7 +92,7 @@ form {
                     <a href="{{ route('user.restaurants.show',$restaurant->id)}}">
                     <div class="card float-left">
                           <div class="card" style="width: 15rem;">
-                            <img class="card-img-top" src="{{ asset('storage/images/' . $restaurant->image)}}" />
+                            <img class="card-img-top" src="{{ asset('storage/images/'. $restaurant->image)}}" />
                             <div class="card-body">
                               <h5 class="card-title">{{ $restaurant->name }}</h5>
                             </div>
