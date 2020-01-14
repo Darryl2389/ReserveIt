@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 300px;
+        width: 22%;
+        padding-top: 50px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>OpenLayers example</title>
+  </head>
 
 <div class="container">
   <div class ="row">
@@ -30,37 +42,31 @@
         <a href="{{route('user.reservations.create',$restaurant->id)}}" class="btn btn-primary float-right">Book</a>
         </div>
       </div>
+
     </div>
+    <body>
+      <h2>My Map</h2>
+      <div id="map" class="map"></div>
+      <script type="text/javascript">
+        var map = new ol.Map({
+          target: 'map',
+          layers: [
+            new ol.layer.Tile({
+              source: new ol.source.OSM()
+            })
+          ],
+          view: new ol.View({
+            // if($restaurant->id == 1)
+              center: ol.proj.fromLonLat([-6.257977, 53.341435]),
+              zoom: 18
+            // else if($restaurant->id == 2)
+            //   center: ol.proj.fromLonLat([-6.262804, 53.342070]),
+            //   zoom: 18
+          })
+        });
+      </script>
+    </body>
   </div>
 </div>
 
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
-    <style>
-      .map {
-        height: 200px;
-        width: 25%;
-      }
-    </style>
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
-    <title>OpenLayers example</title>
-  </head>
-  <body>
-    <h2>My Map</h2>
-    <div id="map" class="map"></div>
-    <script type="text/javascript">
-      var map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([37.41, 8.82]),
-          zoom: 4
-        })
-      });
-    </script>
-  </body>
 @endsection

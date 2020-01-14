@@ -9,12 +9,29 @@
 
 form {
   border-radius: 15px 15px 15px 15px;
-  padding: 25px;
-  display: inline-block;;
+  padding: 180px;
+  display: flex;
+  color:white;
+  justify-content: center;
   position: absolute;
-  text-align: center;
-  margin-left: 23%;
-  width: 50%;
+  max-width:80rem;
+}
+.btn-lg{
+  height:40px;
+  margin-left: 40px;
+  margin-top: 32px;
+}
+.custom-select{
+  margin-top: 30.5px;
+}
+.heroImgText{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  color: white;
+  padding: 100px;
+  padding-left: 420px;
+  font-family: roboto;
 }
 </style>
 
@@ -36,7 +53,8 @@ form {
         <div class="justify-content-center">
         <div class="col-md-12">
           <row>
-          <form method = "POST" action = "{{route('admin.reservations.store')}}">
+            <h1 class="heroImgText"> Book A Reservation</h1>
+          <form method = "POST" action = "{{route('user.reservations.store')}}">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
             <div class="form-group">
               <label for ="title"> Date </label>
@@ -51,25 +69,22 @@ form {
               <input type ="select" class="form-control" id="party_size" name="party_size" value="{{old('party_size')}}"/>
             </div>
             <div class="form-group">
-              <label for ="title"> Restaurant </label>
-              <select name="restaurant_id">
-
+              <select name="restaurant_id" class="custom-select">
                 @foreach ($restaurants as $restaurant)
-                <option value="{{ $restaurant->id }}" {{old("$restaurant->id")}}>
+                <option value="{{ $restaurant->id }}" {{old("$restaurant->id")}} >
                   {{$restaurant->name}}
                 </option>
                 @endforeach
-
               </select>
             </div>
+            <!-- <a href="{{route('admin.reservations.index')}}" class="btn btn-lg btn-link"> Cancel </a> -->
+            <button type="submit" class="btn btn-primary btn-lg float-right"> Submit </button>
+          </form>
           </row>
             <!-- <div class="form-group">
               <label for ="title"> Table </label>
               <input type ="select" class="form-control" id="table_id" name="table_id" value="{{old('table_id')}}"/>
             </div> -->
-            <a href="{{route('admin.reservations.index')}}" class="btn btn-link"> Cancel </a>
-            <button type="submit" class="btn btn-primary float-right"> Submit </button>
-          </form>
           <div class="gallery">
 
           <img class="card-img-top opacity" style="height:25rem;" src="https://i.ibb.co/Hhg7YT6/homePage.jpg" width=100% />
@@ -83,7 +98,7 @@ form {
             @if (count($restaurants) === 0)
             <p> There are no Restaurants</p>
             @else
-            <table id="table-restaurants" class="table table-hover float-left">
+            <table id="table-restaurants" class="table float-left">
               <h2>Available Today</h2>
               <tbody>
               <tr>
