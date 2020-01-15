@@ -5,9 +5,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
     <style>
       .map {
-        height: 300px;
-        width: 22%;
-        padding-top: 50px;
+        height: 285px;
+        width: 33%;
       }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
@@ -45,7 +44,6 @@
 
     </div>
     <body>
-      <h2>My Map</h2>
       <div id="map" class="map"></div>
       <script type="text/javascript">
         var map = new ol.Map({

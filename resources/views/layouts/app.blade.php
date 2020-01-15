@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Spectral+SC&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,7 +26,9 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand text-primary" href="{{ url('/home') }}">
-                  Reserve It
+                  <row>
+                  <div class ="LogoFont"><b>Reserve</b> It</div>
+                </row>
                 </a>
                 <a class="navbar-brand" href="{{ route('admin.reservations.index') }}"</a>
                   Reservations

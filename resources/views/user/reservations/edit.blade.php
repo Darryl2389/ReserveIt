@@ -21,7 +21,7 @@
             </ul>
           </div>
           @endif
-          <form method = "POST" action ="{{ route('admin.reservation.update',$reservation->id) }}">
+          <form method = "POST" action ="{{ route('user.reservations.update',$reservation->id) }}">
             <input type ="hidden" name="_method" value="PUT">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
             <div class="form-group">

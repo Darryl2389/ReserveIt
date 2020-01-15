@@ -41,3 +41,6 @@ Route::delete('/user/reservations/{id}/destroy', 'User\ReservationController@des
 
 Route::get('/user/restaurants', 'User\RestaurantController@index')->name('user.restaurants.index');
 Route::get('/user/restaurants/{id}', 'User\RestaurantController@show')->name('user.restaurants.show');
+
+Route::get('/welcome','SearchController@index')->name('welcome');
+Route::get('welcome/action','SearchController@action')->name('welcome.action');
