@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->integer('party_size');
-            $table->string('restaurant');
+            $table->string('restaurant_id');
             $table->bigInteger('user_id')->unsigned();
             // $table->bigInteger('table_id')->unsigned()
             $table->timestamps();

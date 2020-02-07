@@ -29,7 +29,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-primary" href="{{ url('/home') }}">
+                <a class="navbar-brand text-primary" href="{{ url('/') }}">
                   <row>
                   <div class ="LogoFont"><b>Reserve</b> It</div>
                 </row>

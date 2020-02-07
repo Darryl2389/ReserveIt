@@ -136,6 +136,6 @@ public function destroy($id)
 
   $reservation->delete();
 
-  return redirect()->route('user.reservations.index');
+  return redirect()->route('user.home');
 }
 }

@@ -40,7 +40,7 @@
               <label for ="title"> Party Size </label>
               <input type ="text" class="form-control" id="party_size" name="party_size" value="{{old('party_size',$reservation->party_size)}}"/>
             </div>
-            <a href="{{route('admin.reservations.index')}}" class="btn btn-link"> Cancel </a>
+            <a href="{{route('user.home')}}" class="btn btn-link"> Cancel </a>
             <button type="submit" class="btn btn-primary float-right"> Submit </button>
           </form>
         </div>
