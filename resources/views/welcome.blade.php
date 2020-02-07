@@ -5,6 +5,9 @@
     height: 25rem;
     margin-top:-25px;
 }
+.card-img-top{
+  height:50rem;
+}
 form {
   border-radius: 15px 15px 15px 15px;
   padding: 180px;
@@ -14,15 +17,39 @@ form {
   position: absolute;
   max-width:80rem;
 }
-.btn-lg{
-  height:40px;
-  margin-left: 40px;
-  /* margin-top: 32px; */
+a{
+  color:black;
+  text-decoration: none;
 }
-.search-bar{
-  margin-left:20px;
+.card{
+  height:275px;
   width:250px;
 }
+table tr,td{
+  background-color: white;
+  position: relative;
+}
+.search-bar{
+  margin-left:25px;
+  width:700px;
+}
+search td,tr{
+  border-bottom:solid 1px #BDC7D8;
+  background-color:lightgrey ;
+  width:80%;
+  line-height: 1.2;
+  font-family:Roboto;
+  font-size: 20px;
+  color:white;
+  text-decoration: none;
+}
+search td:hover{
+  background-color: powderblue;
+  color:white;
+}
+/* h5{
+  text-decoration: none;
+} */
 .heroImgText{
   display: flex;
   position: absolute;
@@ -33,6 +60,7 @@ form {
   font-family:'Raleway',sans-serif;
   letter-spacing: 2.5px;
   font-weight: 700;
+  overflow:hidden;
 }
 </style>
 
@@ -43,99 +71,57 @@ form {
 
 
 @section('content')
-      <div class="vertical-center">
-      <div class="container-fluid">
-        <div class="justify-content-center">
+  <div class="vertical-center">
+    <div class="container-fluid">
+      <div class="justify-content-center">
         <div class="col-md-12">
           <row>
-            <h1 class="heroImgText"> Make  A   Reservation</h1>
-          <form method = "POST" action = "{{route('user.reservations.store')}}">
+            <h1 class="heroImgText">Find A Restaurant</h1>
+          <form method = "GET" action = "/searchResults" role="search">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
-            <div class="form-group">
-              <!-- <label for ="title"> Date </label> -->
-              <input type ="date" class="form-control" id="date" name="date" value="{{old('date')}}"/>
-            </div>
-            <div class="form-group">
-              <select name ="select" placeholder="Time" class="form-control" id="time" name="time" value="{{old('time')}}">
-                <option selected="Time">&#128336; Time</Option>
-                <option value="18:30">18:30</option>
-                <option value="18:45">18:45</option>
-                <option value="19:00">19:00</option>
-                <option value="19:15">19:15</option>
-                <option value="19:30">19:30</option>
-                <option value="19:45">19:45</option>
-                <option value="20:00">20:00</option>
-                <option value="20:15">20:15</option>
-                <option value="20:30">20:30</option>
-                <option value="20:45">20:45</option>
-                <option value="21:00">21:00</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select name ="select" placeholder="Party Size" class="form-control" id="party_size" name="party_size" value="{{old('party_size')}}">
-                <option selected="Party Size">👥 Party Size</Option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-              </select>
-            </div>
             <div class="search-bar form-group">
-              <input type ="text" class="form-control" id="search" name="search" placeholder="&#128269;">
+              <input type ="text" class="form-control" id="search" name="search" placeholder="Search by Restaurant, Location or Type...">
+              <search></search>
             </div>
-            <!-- <a href="{{route('admin.reservations.index')}}" class="btn btn-lg btn-link"> Cancel </a> -->
-            <button type="submit" class="btn btn-primary btn-lg float-right"> Book Now! </button>
+            <!-- <button type="submit" class="btn btn-primary btn-lg float-right">Go</button> -->
           </form>
           </row>
         </div>
       </div>
     </div>
   </div>
-          <div class="gallery">
-          <img class="card-img-top opacity" style="height:25rem;" src="https://i.ibb.co/Hhg7YT6/homePage.jpg" width=100% />
-        </div>
-  </div>
-          <hr>
-          <div class="card-body">
-            @if (count($restaurants) === 0)
-            <p> There are no Restaurants</p>
-            @else
-            <table id="table-restaurants" class="table float-left">
-              <h2>Available Today</h2>
-              <tbody>
-              <tr>
-                @foreach ($restaurants  as $restaurant)
-                  <td data-id="{{ $restaurant->id }}">
-                    <a href="{{ route('user.restaurants.show',$restaurant->id)}}">
-                    <div class="card float-left">
-                          <div class="card" style="width: 15rem;">
-                            <img class="card-img-top" src="{{ asset('storage/images/'. $restaurant->image)}}" />
-                            <div class="card-body">
-                              <h5 class="card-title">{{ $restaurant->name }}</h5>
-                            </div>
-                            <div class="card-body">
-                              <a href="#" class="card-subtitle">{{ $restaurant->location }}</a>
-                      </div>
-                    </a>
-            </td>
-            @endforeach
-              </tr>
-          </tablebody>
-        </table>
-        @endif
-    </div>
-  </div>
+  <div class="gallery">
+    <img class="card-img-top opacity" style="height:25rem;" src="https://i.ibb.co/Hhg7YT6/homePage.jpg" width=100% />
+ </div>
+    <hr>
+      @if (count($restaurants) === 0)
+      <p> There are no Restaurants</p>
+      @else
+  <table id="table-restaurants" class="table float-left">
+        <h4>Available Today</h4>
+  <tr>
+    @foreach ($restaurants  as $restaurant)
+      <td>
+        <a href="{{ route('user.restaurants.show',$restaurant->id)}}">
+        <div class="card float-left">
+              <img class="card-img-top" src="{{ asset('storage/images/'. $restaurant->image)}}" />
+              <div class="card-body">
+                <h5 class="card-title">{{ $restaurant->name }}</h5>
+                <!-- {{ $restaurant->location }}
+                {{ $restaurant->type }} -->
+              </div>
+      </div>
+        </a>
+      </td>
+    @endforeach
+  </tr>
+  </table>
+  @endif
   <script>
   $(document).ready(function(){
+   fetch_restaurant_data();
 
-   fetch_customer_data();
-
-   function fetch_customer_data(query = '')
-   {
+   function fetch_restaurant_data(query = ''){
     $.ajax({
      url:"{{ route('welcome.action') }}",
      method:'GET',
@@ -143,17 +129,16 @@ form {
      dataType:'json',
      success:function(data)
      {
-      $('tbody').html(data.table_data);
+      $('search').html(data.table_data);
       $('#total_records').text(data.total_data);
      }
-    })
+   });
    }
-
    $(document).on('keyup', '#search', function(){
     var query = $(this).val();
-    fetch_customer_data(query);
+      fetch_restaurant_data(query);
    });
+
   });
   </script>
-</div>
 @endsection
