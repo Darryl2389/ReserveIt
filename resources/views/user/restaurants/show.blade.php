@@ -17,7 +17,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="card">
         <div class="card-header">
-          Restaurant:: {{$restaurant->name}}
+          {{$restaurant->name}}
         </div>
         <div class="card-body">
           <table class="table table-hover">

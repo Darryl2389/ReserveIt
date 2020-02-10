@@ -3,11 +3,11 @@
 @section('content')
 <div class ="container">
   <div class="row">
-    <div class ="col-md-8 col-md-offset-2">
+    <div class ="col-md-8">
+      <div class="header">
+        Book Reservation
+      </div>
       <div class="card">
-        <div class="header">
-          Book Reservation
-        </div>
         <div class="card-body">
           @if ($errors->any())
           <div class="alert alert-danger">
@@ -62,7 +62,7 @@
                 @endforeach
               </select>
             </div>
-            <!-- <a href="{{route('admin.reservations.index')}}" class="btn btn-lg btn-link"> Cancel </a> -->
+            <a href="{{url('/')}}" class="btn btn-lg btn-link"> Cancel </a>
             <button type="submit" class="btn btn-primary btn-lg float-right"> Book Now! </button>
           </form>
         </div>
