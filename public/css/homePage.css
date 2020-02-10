@@ -1,0 +1,65 @@
+.gallery {
+  margin-top:-180px;
+  height: 45rem;
+  }
+form {
+  border-radius: 15px 15px 15px 15px;
+  padding: 180px;
+  display: flex;
+  margin-top: 250px;
+  justify-content: center;
+  position: absolute;
+  max-width:80rem;
+}
+a{
+  color:black;
+  text-decoration: none;
+}
+.card{
+  height:275px;
+  width:250px;
+}
+table tr,td{
+  background-color: white;
+  position: relative;
+}
+#table-restaurants{
+    margin-left:1.5%;
+}
+h4{
+  margin-left:1.5%;
+}
+.search-bar{
+    margin-left:9%;
+  width:750px;
+}
+search td,tr{
+  border-bottom:solid 1px #BDC7D8;
+  background-color:lightgrey ;
+  width:80%;
+  line-height: 1.2;
+  font-family:Roboto;
+  font-size: 20px;
+  color:white;
+  text-decoration: none;
+}
+search td:hover{
+  background-color: powderblue;
+  color:white;
+}
+/* h5{
+  text-decoration: none;
+} */
+.heroImgText{
+  display: flex;
+  position:absolute;
+  margin-top:365px;
+  justify-content: center;
+  color:#F5FFFA;
+  /* margin-top: 200px; */
+  padding-left: 400px;
+  font-family:'Raleway',sans-serif;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  overflow:hidden;
+}

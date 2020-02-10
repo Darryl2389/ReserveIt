@@ -1,72 +1,10 @@
 @extends('layouts.app')
-<style type="text/css">
-.gallery {
-    overflow: hidden;
-    height: 25rem;
-    margin-top:-25px;
-}
-.card-img-top{
-  height:50rem;
-}
-form {
-  border-radius: 15px 15px 15px 15px;
-  padding: 180px;
-  display: flex;
-  margin-top: 30px;
-  justify-content: center;
-  position: absolute;
-  max-width:80rem;
-}
-a{
-  color:black;
-  text-decoration: none;
-}
-.card{
-  height:275px;
-  width:250px;
-}
-table tr,td{
-  background-color: white;
-  position: relative;
-}
-.search-bar{
-  margin-left:25px;
-  width:700px;
-}
-search td,tr{
-  border-bottom:solid 1px #BDC7D8;
-  background-color:lightgrey ;
-  width:80%;
-  line-height: 1.2;
-  font-family:Roboto;
-  font-size: 20px;
-  color:white;
-  text-decoration: none;
-}
-search td:hover{
-  background-color: powderblue;
-  color:white;
-}
-/* h5{
-  text-decoration: none;
-} */
-.heroImgText{
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  color:#F5FFFA;
-  margin-top: 135px;
-  padding-left: 400px;
-  font-family:'Raleway',sans-serif;
-  letter-spacing: 2.5px;
-  font-weight: 700;
-  overflow:hidden;
-}
-</style>
 
+<link rel="stylesheet" href="{{ asset('css/homePage.css') }}">
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Lato:700|Raleway:600&display=swap" rel="stylesheet">
+
 
 
 
@@ -89,10 +27,11 @@ search td:hover{
         </div>
       </div>
     </div>
+    <div class="gallery">
+      <img class="card-img-top opacity" src="https://i.ibb.co/Hhg7YT6/homePage.jpg" width=100% />
+   </div>
   </div>
-  <div class="gallery">
-    <img class="card-img-top opacity" style="height:25rem;" src="https://i.ibb.co/Hhg7YT6/homePage.jpg" width=100% />
- </div>
+
     <hr>
       @if (count($restaurants) === 0)
       <p> There are no Restaurants</p>
