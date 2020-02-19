@@ -72,7 +72,18 @@ public function store(Request $request)
   $reservation->time = $request->input('time');
   $reservation->restaurant_id = $request->input('restaurant_id');
   $reservation->party_size = $request->input('party_size');
+  // $reservation->save();
+
+  $count = $reservation->where('user_id',$user->id)->count();
+if($count <= 5){
   $reservation->save();
+}
+else{
+  echo "<script>
+        alert('There are no fields to generate a report');
+        window.location.href='admin/ahm/panel';
+        </script>";
+}
 
   return redirect()->route('user.reservations.index');
 }

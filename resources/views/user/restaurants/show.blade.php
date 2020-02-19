@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
     <style>
       #mapid {
-        height: 400px;  /* The height is 400 pixels */
+        height: 300px;  /* The height is 400 pixels */
         width: 30%;  /* The width is the width of the web page */
         float:left;
       }
@@ -40,12 +40,31 @@
         <a href="{{route('user.reservations.create',$restaurant->id)}}" class="btn btn-primary float-right">Book</a>
         </div>
       </div>
+      <br>
+      <div>
+        <form method = "POST" action = "{{route('user.reviews.store')}}">
+          <input type ="hidden" name="_token" value="{{ csrf_token()}}">
+          <label for="review">Write A Review:</label><br>
+          <textarea id="review" rows="4" cols="97">
+          </textarea><br>
+          <input type="submit" value="Post" class="btn btn-primary">
+        </form>
+      </div>
+      <br>
+<div class="card">
+  <div class="card-header">
+    Recent Reviews
+  </div>
+  <table class="table table-hover">
+  </table>
+</div>
     </div>
     <div id="mapid"></div>
     <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('mapid'), {
-          zoom: 18,
+          zoom: 11,
+           disableDefaultUI: true,
           center: {lat: -34.397, lng: 150.644}
         });
         var geocoder = new google.maps.Geocoder();
@@ -72,6 +91,7 @@
       }
       function geocodeAddress(geocoder, resultsMap) {
         var address = <?php echo json_encode($restaurant->location);?>;
+         var name = <?php echo json_encode($restaurant->name);?>;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
@@ -79,6 +99,7 @@
               map: resultsMap,
               position: results[0].geometry.location
             });
+            marker.setContent('You are here.');
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
