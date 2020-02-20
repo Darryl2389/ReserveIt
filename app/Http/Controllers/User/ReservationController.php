@@ -97,8 +97,11 @@ else{
 public function show($id)
 {
   $reservation = Reservation::findOrFail($id);
+  $restaurant = Restaurant::findorFail($id);
+  
   return view('user.reservations.show')->with([
-    'reservation' => $reservation
+    'reservation' => $reservation,
+    'restaurant' => $restaurant
 
 ]);
 }

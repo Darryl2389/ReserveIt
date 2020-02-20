@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-
-
-
 <div class="container">
   <div class ="row">
     <div class="col-md-8 col-md-offset-2">
@@ -32,8 +29,10 @@
             </tr>
             </tbody>
         </table>
-        <a href="{{ route('user.home',$reservation->id) }}" class="btn btn-default">Back</a>
-        <a href="{{ route('user.reservations.edit',$reservation->id) }}" class="btn btn-warning">Edit</a>
+        <a href="{{ route('user.home',$reservation->id) }}" class="btn btn-default float">Back</a>
+        <div class="float-right">
+        <a href="{{ route('user.reviews.create', $restaurant->id) }}" class="btn btn-success">Write A Review</a>
+        <a href="{{ route('user.reservations.edit', $reservation->id) }}" class="btn btn-warning">Edit</a>
         <form style="display:inline-block" method="POST" action="{{route('user.reservations.destroy', $reservation->id) }}">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">

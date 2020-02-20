@@ -41,15 +41,6 @@
         </div>
       </div>
       <br>
-      <div>
-        <form method = "POST" action = "{{route('user.reviews.store',$restaurant->id)}}">
-          <input type ="hidden" name="_token" value="{{ csrf_token()}}">
-          <label for="review">Write A Review:</label><br>
-          <textarea id="review" rows="4" cols="97">
-          </textarea><br>
-          <input type="submit" value="Post" class="btn btn-primary">
-        </form>
-      </div>
       <br>
 <div class="card">
   <div class="card-header">
@@ -66,7 +57,7 @@
       <th>Review</th>
     </tr>
     <tr>
-      <td>{{$review->user->name}}</td>
+      <td>{{$review->user_id}}</td>
       <td>{{$review->review}}</td>
     </tr>
     @endforeach
@@ -120,6 +111,7 @@
           }
         });
       }
+      map.panToBounds(bounds);
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFwvIisc3OQj3v3hwM4a55EhxV3kUk8yI&callback=initMap">

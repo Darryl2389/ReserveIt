@@ -38,7 +38,7 @@ public function create($id)
 {
   $restaurant = Restaurant::findOrFail($id);
 
-    return view('user.reviews.create')->with([
+    return view('user.restaurants.reviews.create')->with([
       'restaurant' => $restaurant
 
     ]);
@@ -50,12 +50,8 @@ public function create($id)
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
-public function store(Request $request,$id)
+public function store(Request $request, $id)
 {
-
-  $request->validate([
-  'review' => 'required|max:250',
-]);
 
   $review = new Review();
   $review->review = $request->input('review');
@@ -65,6 +61,10 @@ public function store(Request $request,$id)
   $review->save();
 
   return redirect()->route('user.restaurants.show', $id);
+
+  $request->validate([
+  'review' => 'required|max:250',
+]);
 }
 
 /**
@@ -81,46 +81,4 @@ public function show($id)
 
 ]);
 }
-//
-// /**
-//  * Show the form for editing the specified resource.
-//  *
-//  * @param  int  $id
-//  * @return \Illuminate\Http\Response
-//  */
-// public function edit($id)
-// {
-//   $reviews = Review::findOrFail($id);
-//
-//   return view('user.reviews.edit')->with([
-//     'reviews' => $reviews
-// ]);
-//
-// }
-//   public function update(Request $request, $id)
-// {
-//   $reviews = Review::findOrFail($id);
-//   $user = User::findOrFail(Auth::user()->reviews->id);
-//
-//   $request->validate([
-//   'review' => 'required|max:250',
-//
-// ]);
-//
-//   $reviews->date = $request->input('review');
-//   $reviews->user_id = $user->id;
-//   $reviews->save();
-//
-//   return redirect()->route('user.reviews.index');
-// }
-//
-//
-// public function destroy($id)
-// {
-//   $reviews = Review::findOrFail($id);
-//
-//   $reviews->delete();
-//
-//   return redirect()->route('user.home');
-// }
 }
