@@ -57,7 +57,7 @@
       <th>Review</th>
     </tr>
     <tr>
-      <td>{{$review->user_id}}</td>
+      <td>{{$review->user->name}}</td>
       <td>{{$review->review}}</td>
     </tr>
     @endforeach
