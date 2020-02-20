@@ -26,12 +26,7 @@ $this->middleware('role:user');
  */
 public function index()
 {
-  $user = Auth::user();
-  $reviews = Review::where('user_id',$user->id)->get();
 
-  return view('user.reviews.index')->with([
-    'reviews' => $reviews
-  ]);
 }
 
 /**
@@ -39,12 +34,12 @@ public function index()
  *
  * @return \Illuminate\Http\Response
  */
-public function create()
+public function create($id)
 {
-  $reviews = Review::all();
+  $restaurant = Restaurant::findOrFail($id);
 
-    return view('user.restaurant.show')->with([
-      'reviews' => $reviews
+    return view('user.reviews.create')->with([
+      'restaurant' => $restaurant
 
     ]);
 }
@@ -55,20 +50,21 @@ public function create()
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
-public function store(Request $request)
+public function store(Request $request,$id)
 {
 
   $request->validate([
   'review' => 'required|max:250',
 ]);
 
-  $user = \Auth::user();
-  $reviews = new Review();
-  $reviews->user_id = $user->id;
-  $reviews->date = $request->input('review');
-  $reviews->save();
+  $review = new Review();
+  $review->review = $request->input('review');
+  $review->restaurant_id = $id;
+  $review->user_id = Auth::id();
 
-  return redirect()->route('user.restaurants.show');
+  $review->save();
+
+  return redirect()->route('user.restaurants.show', $id);
 }
 
 /**

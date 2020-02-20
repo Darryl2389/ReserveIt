@@ -33,8 +33,9 @@ Route::get('/user/restaurants/{id}', 'User\RestaurantController@show')->name('us
 Route::get('/welcome','SearchController@index')->name('welcome');
 Route::get('/welcome/action','SearchController@action')->name('welcome.action');
 
-Route::get('/user/reviews/create', 'User\ReviewController@create')->name('user.reviews.create');
-Route::post('/user/reviews/store', 'User\ReviewController@store')->name('user.reviews.store');
+Route::get('/user/restaurants/{id}/reviews/create', 'User\ReviewController@create')->name('user.reviews.create');
+Route::post('/user/restaurants/{id}/reviews/store', 'User\ReviewController@store')->name('user.reviews.store');
+Route::get('/user/reviews/{id}', 'User\ReviewController@show')->name('user.reviews.show');
 
 
 Route::get ( 'welcome/searchResults','SearchController@searchResults')->name('welcome.searchResults');

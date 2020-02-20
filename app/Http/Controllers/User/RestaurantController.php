@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\Review;
 use JavaScript;
 
 class RestaurantController extends Controller
@@ -31,9 +32,11 @@ public function index()
 public function show($id)
 {
   $restaurant = Restaurant::findOrFail($id);
+  $reviews = $restaurant->reviews()->get();
 
   return view('user.restaurants.show')->with([
-    'restaurant' => $restaurant
+    'restaurant' => $restaurant,
+    'reviews' => $reviews
 ]);
 }
 public function welcome()

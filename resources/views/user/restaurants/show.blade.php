@@ -42,7 +42,7 @@
       </div>
       <br>
       <div>
-        <form method = "POST" action = "{{route('user.reviews.store')}}">
+        <form method = "POST" action = "{{route('user.reviews.store',$restaurant->id)}}">
           <input type ="hidden" name="_token" value="{{ csrf_token()}}">
           <label for="review">Write A Review:</label><br>
           <textarea id="review" rows="4" cols="97">
@@ -53,9 +53,24 @@
       <br>
 <div class="card">
   <div class="card-header">
-    Recent Reviews
+    Reviews
   </div>
   <table class="table table-hover">
+    @if (count($reviews)==0)
+    <p>There are no reviews</p>
+    @else
+    @foreach ($reviews as $review)
+    <tbody>
+      <tr>
+      <th>User</th>
+      <th>Review</th>
+    </tr>
+    <tr>
+      <td>{{$review->user->name}}</td>
+      <td>{{$review->review}}</td>
+    </tr>
+    @endforeach
+    @endif
   </table>
 </div>
     </div>
