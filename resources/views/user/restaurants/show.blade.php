@@ -50,12 +50,12 @@
     @if (count($reviews)==0)
     <p>There are no reviews</p>
     @else
+    <tr>
+    <th>User</th>
+    <th>Review</th>
+  </tr>
     @foreach ($reviews as $review)
     <tbody>
-      <tr>
-      <th>User</th>
-      <th>Review</th>
-    </tr>
     <tr>
       <td>{{$review->user->name}}</td>
       <td>{{$review->review}}</td>

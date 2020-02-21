@@ -15,7 +15,7 @@
         <div class="col-md-12">
           <row>
             <h1 class="heroImgText">Find A Restaurant</h1>
-          <form method = "GET" action = "/searchResults" role="search">
+          <form method = "GET" action = "" role="search">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
             <div class="search-bar form-group">
               <input type ="text" class="form-control" id="search" name="search" placeholder="Search by Restaurant, Location or Type...">

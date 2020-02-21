@@ -26,7 +26,7 @@
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
             <div class="form-group">
               <label for ="title"> Name</label>
-              <input type ="text" class="form-control" id="name" name="name" value="{{old('name',$reservation->name)}}"/>
+              <input type ="text" class="form-control" id="name" name="name" value="{{old('name',$reservation->user->name)}}"/>
             </div>
             <div class="form-group">
               <label for ="title"> Date </label>
