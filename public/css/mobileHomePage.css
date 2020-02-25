@@ -1,0 +1,70 @@
+@media only screen and (max-width: 400px) {
+    .gallery {
+        height: 200rem;
+    }
+
+    form {
+        border-radius: 15px 15px 15px 15px;
+        padding: 180px;
+        display: none;
+        justify-content: center;
+        /* max-width: 80rem; */
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .card {
+        height: 25%;
+        width: 100%;
+    }
+
+    table tr, td {
+        background-color: white;
+        position: relative;
+    }
+
+    #table-restaurants {
+        margin-left: 1.5%;
+    }
+
+    h4 {
+        margin-left: 1.5%;
+    }
+
+    .search-bar {
+        /* margin-left:9%; */
+        width: 200px;
+    }
+
+    search td, tr {
+        border-bottom: solid 1px #BDC7D8;
+        background-color: lightgrey;
+        width: 80%;
+        line-height: 1.2;
+        font-family: Roboto;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    search td:hover {
+        background-color: powderblue;
+        color: white;
+    }
+
+    .heroImgText {
+        display: flex!important;
+        margin-top: 365px;
+        justify-content: center;
+        color: red!important;
+        padding-left: 0px;
+        /* margin-top: 200px; */
+        font-family: 'Raleway', sans-serif;
+        letter-spacing: 2.5px;
+        font-weight: 700;
+        overflow: hidden;
+    }
+}

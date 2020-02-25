@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Review;
+use Illuminate\Support\Facades\DB;
 use JavaScript;
 
 class RestaurantController extends Controller

@@ -1,24 +1,23 @@
 @extends('layouts.app')
 
+<meta name="viewport" content="width = device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{{ asset('css/homePage.css') }}">
+<!-- <link rel="stylesheet" href="{{ asset('css/mobileHomePage.css') }}" media="screen and (min-device-width: 375px) and (max-device-width: 500px)"  /> -->
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Lato:700|Raleway:600&display=swap" rel="stylesheet">
-
-
-
 
 @section('content')
   <div class="vertical-center">
     <div class="container-fluid">
       <div class="justify-content-center">
-        <div class="col-md-12">
+        <div class="col-12">
           <row>
             <h1 class="heroImgText">Find A Restaurant</h1>
           <form method = "GET" action = "" role="search">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
             <div class="search-bar form-group">
-              <input type ="text" class="form-control" id="search" name="search" placeholder="Search by Restaurant, Location or Type...">
+              <input type ="search" class="form-control" id="search" name="search" placeholder="Search by Restaurant, Location or Type...">
               <search></search>
             </div>
             <!-- <button type="submit" class="btn btn-primary btn-lg float-right">Go</button> -->
@@ -40,6 +39,7 @@
         <h4>Available Today</h4>
   <tr>
     @foreach ($restaurants  as $restaurant)
+    <div class="col-12">
       <td>
         <a href="{{ route('user.restaurants.show',$restaurant->id)}}">
         <div class="card float-left">
@@ -52,6 +52,8 @@
       </div>
         </a>
       </td>
+      <div class="w-100"></div>
+    </div>
     @endforeach
   </tr>
   </table>

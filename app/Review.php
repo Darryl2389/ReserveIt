@@ -12,7 +12,7 @@ class Review extends Model
     return $this->belongsTo('App\User');
 }
 //
-// public function restaurant(){
-//   return $this->belongsTo('App\Restaurant');
-// }
+public function restaurant(){
+  return $this->belongsTo('App\Restaurant');
+}
 }

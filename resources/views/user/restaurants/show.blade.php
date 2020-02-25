@@ -4,72 +4,86 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
     <style>
       #mapid {
-        height: 300px;  /* The height is 400 pixels */
-        width: 30%;  /* The width is the width of the web page */
+        height: 250px;  /* The height is 400 pixels */
+        width: 28%;  /* The width is the width of the web page */
+        margin-left:4%;
         float:left;
       }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
-    <title>OpenLayers example</title>
-  </head>
+</head>
 <div class="container">
   <div class ="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="card">
-        <div class="card-header">
-          {{$restaurant->name}}
-        </div>
-        <div class="card-body">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-              <th>Name</th>
-              <td>{{$restaurant->name}}</td>
-            </tr>
-            <tr>
-              <th>Location</th>
-              <td>{{$restaurant->location}}</td>
-            </tr>
-            <tr>
-              <th>Type</th>
-              <td>{{$restaurant->type}}</td>
-            </tr>
-            </tbody>
-        </table>
-        <a href="{{ route('user.restaurants.index',$restaurant->id) }}" class="btn btn-default">Back</a>
-        <a href="{{route('user.reservations.create',$restaurant->id)}}" class="btn btn-primary float-right">Book</a>
-        </div>
-      </div>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
       <br>
       <br>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header bg-secondary text-white">
     Reviews
   </div>
   <table class="table table-hover">
-    @if (count($reviews)==0)
-    <p>There are no reviews</p>
-    @else
-    <tr>
-    <th>User</th>
-    <th>Review</th>
-  </tr>
-    @foreach ($reviews as $review)
-    <tbody>
-    <tr>
-      <td>{{$review->user->name}}</td>
-      <td>{{$review->review}}</td>
+      @if (count($reviews)==0)
+      <p>There are no reviews</p>
+      @else
+      <tr>
+      <th>User</th>
+      <th>Review</th>
     </tr>
-    @endforeach
-    @endif
+      @foreach ($reviews as $review)
+      <tbody>
+      <tr>
+        <td>{{$review->user->name}}</td>
+        <td>{{$review->review}}</td>
+      </tr>
+      @endforeach
+      @endif
   </table>
 </div>
+</div>
+  <div id="mapid"></div>
+  </div>
+  <div class="card float-right">
+    <!-- <div class="card-header bg-secondary text-white">
+      {{$restaurant->name}}
+    </div> -->
+    <div class="card-body">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+          <th>Name</th>
+          <td>{{$restaurant->name}}</td>
+        </tr>
+        <tr>
+          <th>Location</th>
+          <td>{{$restaurant->location}}</td>
+        </tr>
+        <tr>
+          <th>Type</th>
+          <td>{{$restaurant->type}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="{{ route('user.restaurants.index',$restaurant->id) }}" class="btn btn-default">Back</a>
+    <a href="{{route('user.reservations.create',$restaurant->id)}}" class="btn btn-primary float-right">Book</a>
     </div>
-    <div id="mapid"></div>
-    <script>
+  </div>
+  <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('mapid'), {
-          zoom: 11,
+          zoom: 18,
            disableDefaultUI: true,
           center: {lat: -34.397, lng: 150.644}
         });
@@ -112,51 +126,12 @@
         });
       }
       map.panToBounds(bounds);
-    </script>
-    <script async defer
+  </script>
+  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFwvIisc3OQj3v3hwM4a55EhxV3kUk8yI&callback=initMap">
-    </script>
+  </script>
 
+  </div>
 </div>
-<!-- Load Leaflet from CDN-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
-    <!-- Load Esri Leaflet from CDN -->
-    <script src="https://unpkg.com/esri-leaflet"></script>
-    <!-- Esri Leaflet Geocoder -->
-    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
-    <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-
-    </div>
-
-
-<!-- <script>
-  var address =;
-  console.log(address);
-var map = L.map("mapid").setView([40.34116255023715, -6.258249724881425], 4);
-map.setZoom(19);
-L.esri.basemapLayer("Streets").addTo(map);
-L.esri.Geocoding.geocode({
-requestParams: {
-  maxLocations: 1
-}
-})
-.text("SOLE Seafood & Grill, William Street South, Dublin")
-.text(address)
-.run(function(error, results, response) {
-  console.log("results:", results);
-  console.log('first result lat', results.results[0].latlng.lat);
-  console.log('first result lng', results.results[0].latlng.lng);
-  map.panTo(new L.LatLng(results.results[0].latlng.lat, results.results[0].latlng.lng));
-  var marker = L.marker([53.34116255023715, -6.258249724881425]).addTo(map);
-});
-map.on('click', function(e) {
-    var lat = e.latlng.lat;
-    var lng = e.latlng.lng;
-    console.log(lat);
-    var marker = L.marker([e.latlng.lat,e.latlng.lng]).update(marker);
-});
-</script> -->
 @endsection

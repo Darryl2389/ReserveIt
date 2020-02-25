@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Reserve It</title>
+    <title>Reserve It</title
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/Logo-Mini.png') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

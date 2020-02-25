@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Reservation;
 use App\Restaurant;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Role;
 
@@ -74,16 +75,25 @@ public function store(Request $request)
   $reservation->party_size = $request->input('party_size');
   // $reservation->save();
 
-  $count = $reservation->where('user_id',$user->id)->count();
-if($count <= 5){
-  $reservation->save();
-}
-else{
-  echo "<script>
-        alert('There are no fields to generate a report');
-        window.location.href='admin/ahm/panel';
-        </script>";
-}
+  $restrict = $reservation->where('user_id',$user->id)->where('restaurant_id',$reservation->restaurant_id)->count();
+
+  $countId = DB::table('reservations')
+              ->where('restaurant_id',$reservation->restaurant_id)
+              ->count();
+
+  $tables = DB::table('restaurants')
+              ->where('id',$reservation->restaurant_id)
+              ->pluck('table_cap');
+              foreach ($tables as $table);
+
+  $time = DB::table('reservations')
+              ->where('time',$reservation->time)
+              ->where('date',$reservation->date)
+              ->where('restaurant_id',$reservation->restaurant_id)
+              ->count();
+
+  if ($time <= $table) {
+     $reservation->save();
 
   return redirect()->route('user.reservations.index');
 }
@@ -98,7 +108,7 @@ public function show($id)
 {
   $reservation = Reservation::findOrFail($id);
   $restaurant = Restaurant::findorFail($id);
-  
+
   return view('user.reservations.show')->with([
     'reservation' => $reservation,
     'restaurant' => $restaurant
