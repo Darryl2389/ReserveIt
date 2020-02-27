@@ -2,7 +2,6 @@
 
 <meta name="viewport" content="width = device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{{ asset('css/homePage.css') }}">
-<!-- <link rel="stylesheet" href="{{ asset('css/mobileHomePage.css') }}" media="screen and (min-device-width: 375px) and (max-device-width: 500px)"  /> -->
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Lato:700|Raleway:600&display=swap" rel="stylesheet">
@@ -46,13 +45,13 @@
               <img class="card-img-top" src="{{ asset('storage/images/'. $restaurant->image)}}" />
               <div class="card-body">
                 <h5 class="card-title">{{ $restaurant->name }}</h5>
+                <p><small>{{count($restaurant->reviews)}} Reviews</small></p>
                 <!-- {{ $restaurant->location }}
                 {{ $restaurant->type }} -->
               </div>
       </div>
         </a>
       </td>
-      <div class="w-100"></div>
     </div>
     @endforeach
   </tr>

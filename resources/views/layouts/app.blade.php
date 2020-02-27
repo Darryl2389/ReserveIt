@@ -17,6 +17,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Spectral+SC&display=swap" rel="stylesheet">
 
     <!-- Styles -->
@@ -28,15 +29,16 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md">
+      @if(\Route::current()->getName() == 'welcome')
+      <nav class="navbar navbar-expand-md">
+    @else
+    <nav class="navbar navbar-expand-md bg-dark">
+    @endif
             <div class="container">
                 <a class="navbar-brand text-primary" href="{{ url('/') }}">
                   <row>
-                  <div class ="LogoFont"><b>Reserve</b> It</div>
+                    <img src="{{ asset('storage/images/Logo-Header.png') }}" alt="..." class="img-thumbnail" style="background-color:transparent; border-color:transparent;" >
                 </row>
-                </a>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                  Restaurants
                 </a>
                 <a class="navbar-brand" href="{{ url('/') }}">
 
@@ -94,6 +96,37 @@
         <main class="py-4">
             @yield('content')
         </main>
+  <footer class="p-3 mb-2 bg-dark text-white" id="myFooter">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="{{ asset('storage/images/Logo-Header.png') }}" alt="..." class="img-thumbnail" style="background-color:transparent; border-color:transparent;" >
+      </div>
+      <div class="col-sm-2" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
+        <h3>Get Started</h3>
+        <p>Home</p>
+        <p>Sign Up</p>
+        <p>Downloads</p>
+      </div>
+      <div class="col-sm-2" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
+        <h3>About Us</h3>
+        <p>Contact Us</p>
+        <p>Reviews</p>
+      </div>
+      <div class="col-sm-2" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
+        <h3>Support</h3>
+        <p>FAQ</p>
+        <p>Cookie Information</p>
+        <p>Help Desk</p>
+      </div>
+      <div class="col-sm-3" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
+        <a href="#" class="fa fa-facebook" style="font-size: 30px; margin-left: 20px; margin-right: 15px; color: white;"></a>
+        <a href="#" class="fa fa-twitter" style="font-size: 30px; margin-right: 15px; color: white;"></a>
+        <a href="#" class="fa fa-instagram" style="font-size: 30px; margin-right: 15px; color: white;"></a>
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
 </body>
 </html>

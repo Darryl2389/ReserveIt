@@ -97,6 +97,7 @@ public function store(Request $request)
 
   return redirect()->route('user.reservations.index');
 }
+}
 
 /**
  * Display the specified resource.

@@ -1,5 +1,5 @@
 .gallery {
-    margin-top: -16%;
+    margin-top: -18%;
     height: 45rem;
 }
 
@@ -7,10 +7,9 @@ form {
     border-radius: 15px 15px 15px 15px;
     padding: 180px;
     display: flex;
-    margin-top: 250px;
     justify-content: center;
     position: absolute;
-    max-width: 80rem;
+    max-width: 80%;
 }
 
 a {
@@ -28,17 +27,14 @@ table tr, td {
     position: relative;
 }
 
-#table-restaurants {
-    margin-left: 3.4%;
-}
-
 h4 {
     margin-left: 2.5%;
 }
 
 .search-bar {
-    margin-left: 9%;
-    width: 45rem;
+    width: 30rem;
+    margin-top: 280px;
+    margin-left: 140px;
 }
 
 search td, tr {
@@ -59,7 +55,7 @@ search td:hover {
 .heroImgText {
     display: flex;
     position: absolute;
-    margin-top: 30%;
+    margin-top: 32%;
     justify-content: center;
     color: #F5FFFA;
     margin-left: 32%;
@@ -68,31 +64,36 @@ search td:hover {
     font-weight: 700;
 }
 
-@media screen and (max-width: 600px){
-  .heroImgText{
-    display:none;
-  }
-  form {
-      border-radius: 15px 15px 15px 15px;
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      max-width: 100rem;
-      margin-top:-50px;
-  }
-  .search-bar{
-    margin-left:-80%;
-    width: 20rem;
-  }
-  .gallery {
-      margin-top:-16%;
-      height:300px;
-  }
-  td{
-    width:60%;
-    float:left;
-    margin-left:20%;
+@media screen and (max-width: 812px) {
+    .heroImgText {
+        display: none;
+    }
 
+    form {
+        border-radius: 15px 15px 15px 15px;
+        max-width: 100%;
+        padding: 0px;
+        margin-top: 100px;
+    }
 
-  }
+    .search-bar {
+        margin-top: 30px;
+        margin-left: 0px;
+        width: 300px;
+    }
+
+    .gallery {
+        margin-top: -22%;
+        height: 12rem;
+    }
+
+    td {
+        width: 60%;
+        float: left;
+        margin-left: 20%;
+    }
+
+    .card {
+        margin-left: -20px;
+    }
 }

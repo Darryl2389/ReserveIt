@@ -2,60 +2,13 @@
 @section('content')
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
-    <style>
-      #mapid {
-        height: 250px;  /* The height is 400 pixels */
-        width: 28%;  /* The width is the width of the web page */
-        margin-left:4%;
-        float:left;
-      }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/restaurantShowPage.css') }}"/>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
 </head>
 <div class="container">
   <div class ="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
-      <br>
-      <br>
-<div class="card">
-  <div class="card-header bg-secondary text-white">
-    Reviews
-  </div>
-  <table class="table table-hover">
-      @if (count($reviews)==0)
-      <p>There are no reviews</p>
-      @else
-      <tr>
-      <th>User</th>
-      <th>Review</th>
-    </tr>
-      @foreach ($reviews as $review)
-      <tbody>
-      <tr>
-        <td>{{$review->user->name}}</td>
-        <td>{{$review->review}}</td>
-      </tr>
-      @endforeach
-      @endif
-  </table>
-</div>
-</div>
-  <div id="mapid"></div>
-  </div>
-  <div class="card float-right">
+      <img class="cardImage" src="{{ asset('storage/images/'. $restaurant->image)}}"  />
+  <div class="card">
     <!-- <div class="card-header bg-secondary text-white">
       {{$restaurant->name}}
     </div> -->
@@ -63,8 +16,7 @@
       <table class="table table-hover">
         <tbody>
           <tr>
-          <th>Name</th>
-          <td>{{$restaurant->name}}</td>
+          <h1>{{$restaurant->name}}</h1>
         </tr>
         <tr>
           <th>Location</th>
@@ -79,6 +31,42 @@
     <a href="{{ route('user.restaurants.index',$restaurant->id) }}" class="btn btn-default">Back</a>
     <a href="{{route('user.reservations.create',$restaurant->id)}}" class="btn btn-primary float-right">Book</a>
     </div>
+  </div>
+  <div id="mapid"></div>
+      <br>
+      <br>
+    </div>
+    <hr>
+    <h4><b>Menu</b></h4>
+          <a href="https://theivydublin.com/wp-content/uploads/sites/27/2019/11/ALC_DUBLIN_WINTER_2019.pdf">Please click here to see the Menu</a>
+    <hr>
+    <div class="row">
+      <!-- <img class="card bg" src="{{ asset('storage/images/'. $restaurant->menu)}}"  /> -->
+      <div class="reviews">
+      <div class="card float-left">
+        <div class="card-header bg-secondary text-white">
+          Reviews
+        </div>
+        <table class="table table-hover">
+            @if (count($reviews)==0)
+            <p>There are no reviews</p>
+            @else
+            <tr>
+            <th>User</th>
+            <th>Review</th>
+          </tr>
+            @foreach ($reviews as $review)
+            <tbody>
+            <tr>
+              <td>{{$review->user->name}}</td>
+              <td>{{$review->review}}</td>
+            </tr>
+            @endforeach
+            @endif
+        </table>
+      </div>
+    </div>
+  </div>
   </div>
   <script>
       function initMap() {

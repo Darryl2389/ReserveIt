@@ -50,12 +50,16 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+footer{
+  position: relative;
+  height: 190px;
+  clear:both;
+}
 
 article,
 aside,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -11099,4 +11103,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
