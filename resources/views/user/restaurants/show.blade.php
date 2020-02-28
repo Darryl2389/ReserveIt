@@ -8,7 +8,7 @@
 <div class="container">
   <div class ="row">
       <img class="cardImage" src="{{ asset('storage/images/'. $restaurant->image)}}"  />
-  <div class="card">
+  <div class="card shadow-sm rounded">
     <!-- <div class="card-header bg-secondary text-white">
       {{$restaurant->name}}
     </div> -->
@@ -33,20 +33,21 @@
     </div>
   </div>
   <div id="mapid"></div>
-      <br>
-      <br>
     </div>
     <hr>
     <h4><b>Menu</b></h4>
-          <a href="https://theivydublin.com/wp-content/uploads/sites/27/2019/11/ALC_DUBLIN_WINTER_2019.pdf">Please click here to see the Menu</a>
+          <a href="{{$restaurant->menu}}">Please click here to see the Menu</a>
+          <br>
     <hr>
+    <h4><b>Reviews</b></h4>
     <div class="row">
       <!-- <img class="card bg" src="{{ asset('storage/images/'. $restaurant->menu)}}"  /> -->
+
       <div class="reviews">
       <div class="card float-left">
-        <div class="card-header bg-secondary text-white">
-          Reviews
-        </div>
+
+
+
         <table class="table table-hover">
             @if (count($reviews)==0)
             <p>There are no reviews</p>

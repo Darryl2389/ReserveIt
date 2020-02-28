@@ -1,6 +1,5 @@
 .gallery {
-    margin-top: -18%;
-    height: 45rem;
+  margin-top:-110px;
 }
 
 form {
@@ -9,12 +8,24 @@ form {
     display: flex;
     justify-content: center;
     position: absolute;
-    max-width: 80%;
+}
+input search{
+  font-size: 20px;
+  font-family:'Roboto';
 }
 
 a {
     color: black;
     text-decoration: none;
+}
+.card-title{
+  color:black;
+}
+.fa{
+  color:green;
+}
+small{
+  color:black;
 }
 
 .card {
@@ -32,33 +43,43 @@ h4 {
 }
 
 .search-bar {
-    width: 30rem;
-    margin-top: 280px;
-    margin-left: 140px;
+    width: 650px;
+    margin-top: 175px;
+    margin-left: 100px;
 }
 
 search td, tr {
     border-bottom: solid 1px #BDC7D8;
-    background-color: white;
+    background-color: #373534;
+    opacity:0.85;
     width: 80%;
+    padding-left:6px;
+    padding-top:3px;
     line-height: 1.2;
     font-family: Roboto;
     font-size: 20px;
-    color: blue;
-}
-
-search td:hover {
-    background-color: blue;
     color: white;
+}
+search a{
+  color:white;
+}
+search a:hover{
+  text-decoration: none;
+  color:yellow;
+}
+search tr:hover {
+    background-color: white;
+    color: grey;
+
 }
 
 .heroImgText {
     display: flex;
     position: absolute;
-    margin-top: 32%;
+    margin-top: 24%;
     justify-content: center;
     color: #F5FFFA;
-    margin-left: 32%;
+    margin-left: 35%;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 2.5px;
     font-weight: 700;
@@ -83,8 +104,8 @@ search td:hover {
     }
 
     .gallery {
-        margin-top: -22%;
-        height: 12rem;
+        margin-top: -25%;
+        height: 15rem;
     }
 
     td {
@@ -96,4 +117,5 @@ search td:hover {
     .card {
         margin-left: -20px;
     }
+
 }

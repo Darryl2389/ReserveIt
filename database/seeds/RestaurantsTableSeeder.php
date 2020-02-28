@@ -17,6 +17,7 @@ class RestaurantsTableSeeder extends Seeder
       $restaurant->location = 'Dawson Street, Dublin';
       $restaurant->type = 'British';
       $restaurant->image= 'ivy_dawson_street.jpg';
+      $restaurant->table_cap = 20;
       $restaurant->save();
 
       $restaurant = new Restaurant();
@@ -24,6 +25,7 @@ class RestaurantsTableSeeder extends Seeder
       $restaurant->location = 'South William Street, Dublin';
       $restaurant->type = 'Seafood';
       $restaurant->image= 'sole_rest.jpg';
+      $restaurant->table_cap = 20;
       $restaurant->save();
 
       $restaurant = new Restaurant();
@@ -31,6 +33,7 @@ class RestaurantsTableSeeder extends Seeder
       $restaurant->location = 'Dawson Street, Dublin';
       $restaurant->type = 'Steak, Seafood';
       $restaurant->image= 'fire_rest.jpg';
+      $restaurant->table_cap = 20;
       $restaurant->save();
 
       $restaurant = new Restaurant();
@@ -38,6 +41,7 @@ class RestaurantsTableSeeder extends Seeder
       $restaurant->location = 'South William Street, Dublin';
       $restaurant->type = 'International';
       $restaurant->image= 'alfies_rest.jpg';
+      $restaurant->table_cap = 20;
       $restaurant->save();
 
 

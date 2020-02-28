@@ -35,7 +35,7 @@
     <nav class="navbar navbar-expand-md bg-dark">
     @endif
             <div class="container">
-                <a class="navbar-brand text-primary" href="{{ url('/') }}">
+                <a class="navbar-brand text-success" href="{{ url('/') }}">
                   <row>
                     <img src="{{ asset('storage/images/Logo-Header.png') }}" alt="..." class="img-thumbnail" style="background-color:transparent; border-color:transparent;" >
                 </row>
@@ -49,33 +49,33 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <!-- <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{ route('admin.reservations.index') }}"</a>
+                                <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item text-success" href="{{ route('admin.reservations.index') }}"</a>
                                     Reservations
                                   </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-success" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -96,7 +96,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-  <footer class="p-3 mb-2 bg-dark text-white" id="myFooter">
+  <footer class="p-3 text-white" id="myFooter">
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
@@ -120,9 +120,9 @@
         <p>Help Desk</p>
       </div>
       <div class="col-sm-3" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
-        <a href="#" class="fa fa-facebook" style="font-size: 30px; margin-left: 20px; margin-right: 15px; color: white;"></a>
-        <a href="#" class="fa fa-twitter" style="font-size: 30px; margin-right: 15px; color: white;"></a>
-        <a href="#" class="fa fa-instagram" style="font-size: 30px; margin-right: 15px; color: white;"></a>
+        <a href="#" class="fa fa-facebook" style="font-size: 30px; margin-left: 20px; margin-right: 15px;"></a>
+        <a href="#" class="fa fa-twitter" style="font-size: 30px; margin-right: 15px; "></a>
+        <a href="#" class="fa fa-instagram" style="font-size: 30px; margin-right: 15px;"></a>
       </div>
     </div>
   </div>

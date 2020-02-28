@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img class="card-img-top opacity" src="https://i.ibb.co/Hhg7YT6/homePage.jpg" width=100% />
+      <img class="card-img-top" src="{{ asset('storage/images/homeHero.jpg')}}" height="102%"/>
    </div>
   </div>
 
@@ -35,19 +35,33 @@
       <p> There are no Restaurants</p>
       @else
   <table id="table-restaurants" class="table float-left">
+    <hr>
         <h4>Available Today</h4>
   <tr>
     @foreach ($restaurants  as $restaurant)
     <div class="col-12">
       <td>
         <a href="{{ route('user.restaurants.show',$restaurant->id)}}">
-        <div class="card float-left">
+        <div class="card shadow rounded float-left">
               <img class="card-img-top" src="{{ asset('storage/images/'. $restaurant->image)}}" />
               <div class="card-body">
                 <h5 class="card-title">{{ $restaurant->name }}</h5>
-                <p><small>{{count($restaurant->reviews)}} Reviews</small></p>
-                <!-- {{ $restaurant->location }}
-                {{ $restaurant->type }} -->
+                <p>
+                  <small>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-half" aria-hidden="true"></i>
+                  <!-- <i class="fa fa-starempty-half" aria-hidden="true"></i> -->
+                  {{count($restaurant->reviews)}} Reviews
+                </small>
+                </p>
+                <p>
+                  <small>
+                {{ $restaurant->type }}
+              </small>
+              </p>
               </div>
       </div>
         </a>
