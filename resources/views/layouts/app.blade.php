@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Spectral+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -100,24 +101,26 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
+        <a href="{{ url('/') }}">
         <img src="{{ asset('storage/images/Logo-Header.png') }}" alt="..." class="img-thumbnail" style="background-color:transparent; border-color:transparent;" >
+        </a>
       </div>
       <div class="col-sm-2" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
-        <h3>Get Started</h3>
-        <p>Home</p>
-        <p>Sign Up</p>
-        <p>Downloads</p>
+        <h3>Main Pages </h3>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/') }}">Home</a></p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/register') }}">Sign Up</a></p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/login') }}">Login</a></p>
       </div>
       <div class="col-sm-2" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
         <h3>About Us</h3>
-        <p>Contact Us</p>
-        <p>Reviews</p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/about') }}">About Us</a></p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/contact') }}">Contact</a></p>
       </div>
       <div class="col-sm-2" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
         <h3>Support</h3>
-        <p>FAQ</p>
-        <p>Cookie Information</p>
-        <p>Help Desk</p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/') }}">FAQ</a></p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/') }}">Cookie Information</a></p>
+        <p><a class="footerLink" style="text-decoration: none;" href="{{ url('/') }}">Help Desk</a></p>
       </div>
       <div class="col-sm-3" style="padding-right:20px; border-left: 1px solid #ccc; height: 75px;">
         <a href="#" class="fa fa-facebook" style="font-size: 30px; margin-left: 20px; margin-right: 15px;"></a>

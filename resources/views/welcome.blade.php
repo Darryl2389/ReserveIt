@@ -14,7 +14,7 @@
           <row>
             <h1 class="heroImgText">Find A Restaurant</h1>
           <form method = "GET" action = "" role="search">
-            <input type ="hidden" name="_token" value="{{ csrf_token()}}">
+            <input type ="hidden" name="_token" id="formtsize" value="{{ csrf_token()}}">
             <div class="search-bar form-group">
               <input type ="search" class="form-control" id="search" name="search" placeholder="Search by Restaurant, Location or Type...">
               <search></search>
@@ -38,9 +38,10 @@
     <hr>
         <h4>Available Today</h4>
   <tr>
-    @foreach ($restaurants  as $restaurant)
+    @foreach ($restaurants as $restaurant)
     <div class="col-12">
       <td>
+        @if($restaurant->id <=6)
         <a href="{{ route('user.restaurants.show',$restaurant->id)}}">
         <div class="card shadow rounded float-left">
               <img class="card-img-top" src="{{ asset('storage/images/'. $restaurant->image)}}" />
@@ -65,6 +66,7 @@
               </div>
       </div>
         </a>
+      @endif
       </td>
     </div>
     @endforeach

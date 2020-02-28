@@ -1,3 +1,7 @@
+body {
+  font-family:'Lato';
+}
+
 .gallery {
   margin-top:-110px;
 }
@@ -31,6 +35,8 @@ small{
 .card {
     height: 275px;
     width: 250px;
+    font-family:'Trebuchet MS';
+
 }
 
 table tr, td {
@@ -119,3 +125,23 @@ search tr:hover {
     }
 
 }
+
+@media screen and (min-width: 1920px) {
+    .heroImgText {
+        display: flex;
+        margin-left: 690px;
+        font-size: 54px;
+        margin-top: 470px;
+    }
+
+    .search-bar {
+        margin-top: 400px;
+        margin-left: 300px;
+        width: 900px;
+    }
+
+    #search{
+      height: 60px;
+      font-size: 24px;
+      font-family: 'Trebuchet MS';
+    }

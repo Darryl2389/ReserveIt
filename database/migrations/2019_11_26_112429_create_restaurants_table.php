@@ -19,6 +19,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('location');
             $table->string('type');
             $table->bigInteger('table_cap');
+            $table->string('menu');
             $table->timestamps();
         });
     }

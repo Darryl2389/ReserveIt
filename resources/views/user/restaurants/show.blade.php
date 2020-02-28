@@ -114,7 +114,6 @@
           }
         });
       }
-      map.panToBounds(bounds);
   </script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFwvIisc3OQj3v3hwM4a55EhxV3kUk8yI&callback=initMap">
