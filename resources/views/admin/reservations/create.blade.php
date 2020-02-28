@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+{{-- Admin Create Reservation --}}
+
 @section('content')
 <div class ="container">
   <div class="row">

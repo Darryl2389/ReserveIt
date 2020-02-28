@@ -1,5 +1,7 @@
 <?php
 
+//User Factory that generates a number of users in the database when migrated
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 use Faker\Generator as Faker;

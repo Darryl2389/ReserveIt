@@ -1,11 +1,16 @@
+/* CSS for the home page */
+
+/* Body Text for whole application */
 body {
   font-family:'Lato';
 }
 
+/* Hero Image on home page */
 .gallery {
   margin-top:-110px;
 }
 
+/* Css form search bar on home page */
 form {
     border-radius: 15px 15px 15px 15px;
     padding: 180px;
@@ -13,11 +18,13 @@ form {
     justify-content: center;
     position: absolute;
 }
+/* Inside the searchbar (placeholder text) */
 input search{
   font-size: 20px;
   font-family:'Roboto';
 }
 
+/* CSS for the cards*/
 a {
     color: black;
     text-decoration: none;
@@ -25,6 +32,7 @@ a {
 .card-title{
   color:black;
 }
+/* Star rating colour */
 .fa{
   color:green;
 }
@@ -32,6 +40,7 @@ small{
   color:black;
 }
 
+/* Card sizes & text */
 .card {
     height: 275px;
     width: 250px;
@@ -39,6 +48,7 @@ small{
 
 }
 
+/* Card Table Row */
 table tr, td {
     background-color: white;
     position: relative;
@@ -48,12 +58,14 @@ h4 {
     margin-left: 2.5%;
 }
 
+/* Searchbar size */
 .search-bar {
     width: 650px;
     margin-top: 175px;
     margin-left: 100px;
 }
 
+/* Searchbar results CSS */
 search td, tr {
     border-bottom: solid 1px #BDC7D8;
     background-color: #373534;
@@ -66,12 +78,13 @@ search td, tr {
     font-size: 20px;
     color: white;
 }
+/* Searchbar colours */
 search a{
   color:white;
 }
 search a:hover{
   text-decoration: none;
-  color:yellow;
+  color:#009245;
 }
 search tr:hover {
     background-color: white;
@@ -79,6 +92,7 @@ search tr:hover {
 
 }
 
+/* Hero Image Text css */
 .heroImgText {
     display: flex;
     position: absolute;
@@ -91,6 +105,7 @@ search tr:hover {
     font-weight: 700;
 }
 
+/* Media Query for mobile */
 @media screen and (max-width: 812px) {
     .heroImgText {
         display: none;
@@ -125,7 +140,7 @@ search tr:hover {
     }
 
 }
-
+/* Media Query for Desktop (1920px * 1200px) */
 @media screen and (min-width: 1920px) {
     .heroImgText {
         display: flex;

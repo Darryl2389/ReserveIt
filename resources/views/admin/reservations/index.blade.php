@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+{{-- Admin Index Reservation --}}
+
 @section('content')
 <div class="container">
   <div class ="row">

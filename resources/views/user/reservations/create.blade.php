@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+{{-- User Reservations Create --}}
+
 @section('content')
 <div class ="container">
   <div class="row">
@@ -9,6 +11,7 @@
       </div>
       <div class="card">
         <div class="card-body">
+          {{-- If fields are incorrect then show the errors --}}
           @if ($errors->any())
           <div class="alert alert-danger">
             <ul>
@@ -18,12 +21,16 @@
             </ul>
           </div>
           @endif
+          {{-- If successful POST to user.reservations.store --}}
           <form method = "POST" action = "{{route('user.reservations.store')}}">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
+
+            {{-- Date --}}
             <div class="form-group">
-              <!-- <label for ="title"> Date </label> -->
               <input type ="date" class="form-control" id="date" name="date" value="{{old('date')}}"/>
             </div>
+
+            {{-- Time --}}
             <div class="form-group">
               <select name ="time" placeholder="Time" class="form-control" id="time" name="time" value="{{old('time')}}">
                 <option selected="Time">Time</Option>
@@ -40,6 +47,8 @@
                 <option value="21:00">21:00</option>
               </select>
             </div>
+
+            {{-- Number of People in Party --}}
             <div class="form-group">
               <select name ="party_size" placeholder="Party Size" class="form-control" id="party_size" name="party_size" value="{{old('party_size')}}">
                 <option selected="Party Size">Party Size</Option>
@@ -53,16 +62,22 @@
                 <option value="8">8</option>
               </select>
             </div>
+
+            {{-- Restaurant --}}
             <div class="form-group">
               <select name="restaurant_id" class="custom-select">
+                {{-- Gets Restaurants from the Restaurant table --}}
                 @foreach ($restaurants as $restaurant)
+                {{-- Gets name & id from Restaurant --}}
                 <option value="{{ $restaurant->id }}" {{old("$restaurant->id")}} >
                   {{$restaurant->name}}
                 </option>
                 @endforeach
               </select>
             </div>
+            {{-- Cancel --}}
             <a href="{{url('/')}}" class="btn btn-lg btn-link"> Cancel </a>
+            {{-- Submit --}}
             <button type="submit" class="btn btn-primary btn-lg float-right"> Book Now! </button>
           </form>
         </div>

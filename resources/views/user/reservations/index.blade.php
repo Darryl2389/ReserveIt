@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
+{{-- User Reservations Index --}}
 
-
-
+{{-- Mostly Unused --}}
 
 @section('content')
 <div class="container">
@@ -25,6 +25,7 @@
               <th>Party Size</th>
             </thead>
             <tbody>
+              {{-- Shows reservations belonging to the user --}}
               @foreach ($reservations as $reservation)
               <tr data-id="{{ $reservation->id }}">
                 <td>{{ $reservation->user->name }}</td>
@@ -33,7 +34,7 @@
                 <td>{{ $reservation->time }}</td>
                 <td>{{ $reservation->party_size }}</td>
                 <td>
-                  <a href="{{ route('user.reservations.show',$reservation->id) }}" class="btn btn-default">View</a>
+                  <a href="{{ route('user.reservations.show',$reservation->id) }}" class="btn btn-light">View</a>
                   <a href="{{ route('user.reservations.edit',$reservation->id) }}" class="btn btn-warning">Edit</a>
                   <form style="display:inline-block" method="POST" action="{{route('user.reservations.destroy', $reservation->id) }}">
                     <input type="hidden" name="_method" value="DELETE">

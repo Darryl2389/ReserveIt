@@ -1,6 +1,6 @@
 <?php
-# @Date:   2019-10-22T15:38:37+01:00
-# @Last modified time: 2019-10-22T17:20:17+01:00
+
+//Database Seeder
 
 
 
@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    //Seeds all below databases
     public function run()
     {
         $this->call(RolesTableSeeder::class);

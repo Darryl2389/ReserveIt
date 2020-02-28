@@ -1,4 +1,7 @@
 <div class="container">
+
+{{-- Searchbar Results Page --}}
+
     @if(isset($details))
         <p> The Search results for your query <b> {{ $query }} </b> are :</p>
     <h2>Sample User details</h2>

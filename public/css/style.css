@@ -1,12 +1,10 @@
-.LogoFont{
-  font-family:'Raleway';
-}
-
+/* Footer Links CSS */
 .footerLink{
   color: white;
   text-decoration: none;
 }
 
+/* Contact Text Line-height */
 .contactText{
   line-height: 1;
 }

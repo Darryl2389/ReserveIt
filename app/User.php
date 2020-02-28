@@ -1,8 +1,6 @@
 <?php
-# @Date:   2019-10-22T15:38:38+01:00
-# @Last modified time: 2019-10-23T13:11:31+01:00
 
-
+//User Model
 
 
 namespace App;

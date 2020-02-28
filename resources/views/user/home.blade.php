@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+{{-- User Home Page --}}
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,6 +16,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    {{-- Displays current users name --}}
                     Hi {{Auth::user()->name}}
                 </div>
             </div>
@@ -37,6 +40,7 @@
       <th> </th>
     </thead>
     <tbody>
+      {{-- Displays Current Users reservations --}}
       @foreach ($reservations as $reservation)
       <tr data-id="{{ $reservation->id }}">
         <td>{{ $reservation->user->name }}</td>

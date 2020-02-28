@@ -1,8 +1,7 @@
 <?php
+//Review Controller
 
 namespace App\Http\Controllers\User;
-
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +23,11 @@ $this->middleware('role:user');
  *
  * @return \Illuminate\Http\Response
  */
+
+//Review Index
 public function index()
 {
-
+  //Reviews doesnt have any code in index as it is on the restaurant show page instead
 }
 
 /**
@@ -34,6 +35,8 @@ public function index()
  *
  * @return \Illuminate\Http\Response
  */
+
+//Review Create
 public function create($id)
 {
   $restaurant = Restaurant::findOrFail($id);
@@ -50,9 +53,12 @@ public function create($id)
  * @param  \Illuminate\Http\Request  $request
  * @return \Illuminate\Http\Response
  */
+
+
+//Review Store
 public function store(Request $request, $id)
 {
-
+  //Setting Review Fields
   $review = new Review();
   $review->review = $request->input('review');
   $review->restaurant_id = $id;
@@ -62,6 +68,7 @@ public function store(Request $request, $id)
 
   return redirect()->route('user.restaurants.show', $id);
 
+  //Validating Review
   $request->validate([
   'review' => 'required|max:250',
 ]);
@@ -73,6 +80,8 @@ public function store(Request $request, $id)
  * @param  int  $id
  * @return \Illuminate\Http\Response
  */
+
+//Show Reviews
 public function show($id)
 {
   $reviews = Review::findOrFail($id);

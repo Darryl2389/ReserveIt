@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+{{-- User Restaurant Index --}}
+
+{{-- Unused --}}
+
 @section('content')
 <div class="container">
   <div class ="row">

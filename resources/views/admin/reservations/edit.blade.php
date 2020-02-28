@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-
+{{-- Admin Edit Reservation --}}
 
 
 <div class ="container">

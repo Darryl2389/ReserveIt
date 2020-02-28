@@ -1,7 +1,7 @@
 <?php
+//Restaurant Controller
 
 namespace App\Http\Controllers\User;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
@@ -22,17 +22,23 @@ $this->middleware('role:user');
  *
  * @return \Illuminate\Http\Response
  */
+
+//Restaurant Index
 public function index()
 {
   $restaurants = Restaurant::all();
 
+  //Returns View with restaurants
   return view('user.restaurants.index')->with([
     'restaurants' => $restaurants
   ]);
 }
+
+//Restaurant Show
 public function show($id)
 {
   $restaurant = Restaurant::findOrFail($id);
+  //Show get the reviews
   $reviews = $restaurant->reviews()->get();
 
   return view('user.restaurants.show')->with([
@@ -40,6 +46,7 @@ public function show($id)
     'reviews' => $reviews
 ]);
 }
+//Restaurant Welcome
 public function welcome()
 {
   $restaurant = Restaurant::all();

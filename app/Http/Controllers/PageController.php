@@ -1,4 +1,5 @@
 <?php
+//Page Controller
 
 namespace App\Http\Controllers;
 
@@ -14,10 +15,11 @@ class PageController extends Controller
         'restaurants' => $restaurants
       ]);
     }
+    //Returns view 'about'
     public function about(){
       return view('about');
     }
-
+    //Returns view 'contact'
     public function contact(){
       return view('contact');
     }

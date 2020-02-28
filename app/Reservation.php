@@ -1,5 +1,7 @@
 <?php
 
+//Reservation Model
+
 namespace App;
 use App\User;
 use App\Restaurant;

@@ -1,4 +1,6 @@
 <?php
+//Searchbar Controller
+
 
 namespace App\Http\Controllers;
 
@@ -7,19 +9,23 @@ use DB;
 
 class SearchController extends Controller
 {
+    //Searchbar Index
     function index()
     {
      return view('welcome');
     }
 
+    //Searchbar action function
     function action(Request $request)
     {
      if($request->ajax())
      {
       $output = '';
       $query = $request->get('query');
+      //Where typed into the searchbar on the home page
       if($query != '')
       {
+       //If data searched is like name, location or type
        $data = DB::table('restaurants')
          ->where('name', 'like', '%'.$query.'%')
          ->orWhere('location', 'like', '%'.$query.'%')
@@ -27,9 +33,11 @@ class SearchController extends Controller
          ->get();
        }
 
+
       $total_row = $data->count();
       if($total_row > 0)
       {
+       //Output data like what has been entered
        foreach($data as $row)
        {
         $output .="
@@ -57,17 +65,5 @@ class SearchController extends Controller
       echo json_encode($data);
      }
     }
-    // function searchResults(){
-    //   {
-    //   	$query = Input::get ( 'q' );
-    //   	if($query != ""){
-    //   		$restaurant = Restaurant::where ( 'name', 'LIKE', '%' . $restaurant . '%' )->orWhere ( 'type', 'LIKE', '%' . $restaurant . '%' )->get ();
-    //   		if (count ( $restaurant ) > 0)
-    //   			return view ( 'searchResults' )->withDetails ( $restaurant )->withQuery ( $restaurant );
-    //   		else
-    //   			return view ( 'searchResults' )->withMessage ( 'No Details found. Try to search again !' );
-    //   	}
-    //   	return view ( 'searchResults' )->withMessage ( 'No Details found. Try to search again !' );
-    //   }
-    // }
+
 }

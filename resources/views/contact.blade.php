@@ -1,6 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+{{-- Contact Page --}}
 
 
 
