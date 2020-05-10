@@ -47,7 +47,6 @@ public function create()
 
     return view('user.reservations.create')->with([
       'restaurants' => $restaurants
-
     ]);
 }
 /**
@@ -130,13 +129,15 @@ public function show($id)
  * @return \Illuminate\Http\Response
  */
 
-//Reservation Store
+//Reservation Edit
 public function edit($id)
 {
+  $restaurants = Restaurant::all();
   $reservation = Reservation::findOrFail($id);
 
   return view('user.reservations.edit')->with([
-    'reservation' => $reservation
+    'reservation' => $reservation,
+    'restaurants' => $restaurants
 ]);
 
 }
@@ -144,22 +145,15 @@ public function edit($id)
 //Reservation Update
 public function update(Request $request, $id)
 {
-  $reservations = Reservation::findOrFail($id);
-  $user = User::findOrFail(Auth::user()->reservation->id);
+  $reservation = Reservation::findOrFail($id);
+  $user = \Auth::user();
 
-  //Update Validation
-  $request->validate([
-    'date' => 'required|max:191',
-    'time' => 'required',
-    'party_size' => 'required|2',
-    'restaurant_id' => 'required',
-
-]);
   //Setting values to go into database
+  $reservation->user_id = $user->id;
   $reservation->date = $request->input('date');
   $reservation->time = $request->input('time');
-  $reservation->user_id = $user->id;
-  $reservation->price = $request->input('price');
+  $reservation->restaurant_id = $request->input('restaurant_id');
+  $reservation->party_size = $request->input('party_size');
   $reservation->save();
 
   return redirect()->route('user.reservations.index');

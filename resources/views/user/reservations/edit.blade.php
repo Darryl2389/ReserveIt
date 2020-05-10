@@ -26,27 +26,58 @@
           <form method = "POST" action ="{{ route('user.reservations.update',$reservation->id) }}">
             <input type ="hidden" name="_method" value="PUT">
             <input type ="hidden" name="_token" value="{{ csrf_token()}}">
-            {{-- Edit Name --}}
+
+            {{-- Date --}}
             <div class="form-group">
-              <label for ="title"> Name</label>
-              {{-- Takes old value from previous value --}}
-              <input type ="text" class="form-control" id="name" name="name" value="{{old('name',$reservation->user->name)}}"/>
+              <input type ="date" class="form-control" id="date" name="date" value="{{$reservation->date}}"/>
             </div>
-            {{-- Edit Date --}}
+
+            {{-- Time --}}
             <div class="form-group">
-              <label for ="title"> Date </label>
-              <input type ="text" class="form-control" id="date" name="date" value="{{old('date',$reservation->date)}}"/>
+              <Label for ="title"> Time </label>
+              <select name ="time" class="form-control" id="time" name="time" value="{{old('time', $reservation->date)}}">
+                <option value="18:30">18:30</option>
+                <option value="18:45">18:45</option>
+                <option value="19:00">19:00</option>
+                <option value="19:15">19:15</option>
+                <option value="19:30">19:30</option>
+                <option value="19:45">19:45</option>
+                <option value="20:00">20:00</option>
+                <option value="20:15">20:15</option>
+                <option value="20:30">20:30</option>
+                <option value="20:45">20:45</option>
+                <option value="21:00">21:00</option>
+              </select>
             </div>
-            {{-- Edit Name --}}
+
+            {{-- Number of People in Party --}}
             <div class="form-group">
-              <label for ="title"> Time </label>
-              <input type ="text" class="form-control" id="time" name="time" value="{{old('time',$reservation->time)}}"/>
+              <Label for ="title"> Party Size </label>
+              <select name ="party_size" placeholder="Party Size" class="form-control" id="party_size" name="party_size" value="{{old('party_size', $reservation->date)}}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
             </div>
-            {{-- Party Size --}}
+
+            {{-- Restaurant --}}
             <div class="form-group">
-              <label for ="title"> Party Size </label>
-              <input type ="text" class="form-control" id="party_size" name="party_size" value="{{old('party_size',$reservation->party_size)}}"/>
+              <select name="restaurant_id" class="custom-select">
+                {{-- Gets Restaurants from the Restaurant table --}}
+                @foreach ($restaurants as $restaurant)
+                {{-- Gets name & id from Restaurant --}}
+                <option value="{{ $restaurant->id }}" {{old("$restaurant->id")}} >
+                  {{$restaurant->name}}
+                </option>
+                @endforeach
+              </select>
             </div>
+
             <a href="{{route('user.home')}}" class="btn btn-link"> Cancel </a>
             <button type="submit" class="btn btn-primary float-right"> Submit </button>
           </form>
